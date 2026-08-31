@@ -67,18 +67,24 @@ class linked_list:
             print(f"Titulo: {current.data[0] } \n Artista: {current.data[1]} \n Año: {current.data[2]} \n Genero: {current.data[3]} ")
             print("-" * 20)
             current = current.next
+            
 
-
-
-    def search(self, search):
+    def delete(self, delete):
         current = self.head
+        previous = None
         encontrado = False
         while current is not None:
-            if search in current.data[0].lower() or search in current.data[1].lower():
+            if delete in current.data[0].lower() or delete in current.data[1].lower():
                 print("Cancion enconcontrada")
                 current.show()
                 encontrado = True
-            current = current.next
+                if previous is None:
+                    self.head = current.next
+                else:
+                    previous.next = current.next
+                self.size -= 1
+                print("Cancion eliminada")
+            break
         if not encontrado:
             print("No se encontro la cancion")
         
