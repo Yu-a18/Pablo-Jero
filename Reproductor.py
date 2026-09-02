@@ -89,7 +89,15 @@ class linked_list:
             print("No se encontro la cancion")
         
        
-
+    def buscar(self, valor):
+        actual = self.head
+        posicion = 0
+        while actual is not None:
+            if actual.dato == valor:
+                return posicion
+            actual = actual.siguiente
+            posicion +=1
+        return -1
 
 
 
